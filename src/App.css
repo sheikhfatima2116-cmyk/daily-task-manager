@@ -169,51 +169,72 @@ body {
   }
 }
 
-/* Better Mobile Responsive Design */
-@media (max-width: 600px) {
+/* Mobile Responsive Fix */
+@media screen and (max-width: 600px) {
+  * {
+    box-sizing: border-box;
+  }
+
   body {
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
   }
 
   .navbar {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    padding: 15px;
   }
 
   .navbar ul {
+    display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    padding: 0;
+    margin: 0;
   }
 
   .cards {
-    grid-template-columns: 1fr;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+    max-width: 100%;
     gap: 12px;
+  }
+
+  .cards > * {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .add-task {
     display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
   .add-task input,
   .add-task button {
     width: 100%;
+    max-width: 100%;
     min-width: 0;
   }
 
-  .task-item {
-    flex-wrap: wrap;
+  main,
+  .container {
+    width: 100%;
     max-width: 100%;
-  }
-
-  h1 {
-    font-size: 26px;
-  }
-
-  main {
     padding: 12px;
   }
 }
